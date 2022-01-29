@@ -15,6 +15,7 @@ public class Dev {
         bootcamp.getDevsUInscritos().add(this);
     }
 
+
     public void progredir() {
         Optional<Conteudo>conteudo = this.conteudosInscrito.stream().findFirst();
         if(conteudo.isPresent()) {
@@ -30,6 +31,33 @@ public class Dev {
               .stream()
               .mapToDouble(Conteudo::calcularXp)
               .sum();
+
+    }
+
+    public void imprimirExp(){
+        System.out.println("\nExperiência: " + calcularTotalXp());
+    }
+
+    public void imprimirCursosInscritos() {
+        Optional<Conteudo> devInscrito = this.conteudosInscrito.stream().findFirst();
+        if (devInscrito.isEmpty()) {
+            System.out.println("\n=== " + nome + " não possui inscrições abertas ===\n");
+        } else
+            System.out.println("\n=== Conteúdo(s) Inscrito(s) de " + nome + " ===");
+        for (Conteudo inscrito : conteudosInscrito) {
+            System.out.println(inscrito);
+        }
+    }
+
+    public void imprimirCursosConcluidos() {
+        Optional<Conteudo> devConcluido = this.conteudosConcluidos.stream().findFirst();
+        if (devConcluido.isEmpty()) {
+            System.out.println("\n=== " + nome + " não possui conteúdos concluídos ===\n");
+        } else
+            System.out.println("\n=== Conteúdo(s) concluído(s) de " + nome + " ===");
+        for (Conteudo inscrito : conteudosConcluidos) {
+            System.out.println(inscrito);
+        }
     }
 
     public String getNome() {
@@ -56,6 +84,8 @@ public class Dev {
         this.conteudosConcluidos = conteudosConcluidos;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,4 +98,5 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome, conteudosInscrito, conteudosConcluidos);
     }
-}
+        }
+

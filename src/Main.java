@@ -1,7 +1,4 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -15,7 +12,7 @@ public class Main {
         Curso curso2 = new Curso();
         curso2.setTitulo("Curso JS");
         curso2.setDescricao("Descrição do curso JS");
-        curso2.setCargaHoraria(8);
+        curso2.setCargaHoraria(4);
 
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("Mentoria Java");
@@ -32,28 +29,24 @@ public class Main {
         Dev devRodrigo = new Dev();
         devRodrigo.setNome("Rodrigo");
         devRodrigo.inscreverBootcamp(bootcamp);
-
-        System.out.println("Conteúdos Inscritos Rodrigo" + devRodrigo.getConteudosInscrito());
         devRodrigo.progredir();
         devRodrigo.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos Rodrigo" + devRodrigo.getConteudosInscrito());
-        System.out.println("Conteúdos Concluídos Rodrigo" + devRodrigo.getConteudosConcluidos());
-        System.out.println("XP: " + devRodrigo.calcularTotalXp());
+        devRodrigo.progredir();
 
-        System.out.println("-------");
+
+        devRodrigo.imprimirCursosInscritos();
+        devRodrigo.imprimirCursosConcluidos();
 
         Dev devMarcos = new Dev();
         devMarcos.setNome("Marcos");
         devMarcos.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Marcos" + devMarcos.getConteudosInscrito());
         devMarcos.progredir();
-        devMarcos.progredir();
-        devMarcos.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos Marcos" + devMarcos.getConteudosInscrito());
-        System.out.println("Conteúdos Concluídos Marcos" + devMarcos.getConteudosConcluidos());
-        System.out.println("XP: " + devMarcos.calcularTotalXp());
+
+        devMarcos.imprimirCursosInscritos();
+        devMarcos.imprimirCursosConcluidos();
+        devMarcos.imprimirExp();
+
+
 
 
     }
